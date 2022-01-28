@@ -1,0 +1,204 @@
+import threading
+event = threading.Event()
+from array import *
+
+# Class
+class produce:
+    def __init__(self, name, price_tag, price):
+        self.name = name
+        self.price_tag = price_tag
+        self.price = price
+produce1 = produce("apple", "price:$0.50", 0.50)
+produce2 = produce("pear", "price:$1.00", 1.00)
+produce3 = produce("orange", "price:$1.50", 1.50)
+produce4 = produce("grapes", "price:$2.25", 2.25)
+
+class meats:
+    def __init__(self, name, price_tag, price):
+        self.name = name
+        self.price_tag = price_tag
+        self.price = price
+meats1 = meats("eggs", "price:$1.50", 1.50)
+meats2 = meats("pork", "price:$3.00", 3.00)
+meats3 = meats("chicken", "price:$4.50", 4.50)
+meats4 = meats("beef", "price:$6.75", 6.75)
+
+class dairy:
+    def __init__(self, name, price_tag, price):
+        self.name = name
+        self.price_tag = price_tag
+        self.price = price
+dairy1 = dairy("milk", "price:$1.00", 1.00)
+dairy2 = dairy("butter", "price:$2.00", 2.00)
+dairy3 = dairy("cheese", "price:$3.00", 3.00)
+dairy4 = dairy("ice cream", "price:$4.50", 4.50)
+# Class
+
+def shopping_list():
+    start = 0
+    quit = 0
+    add_1 = 0
+    add_2 = 0
+    delete = 0
+    insert = 0
+    insert_2 = 0
+    arr = []
+    arr_2 = []
+    sum = 0
+    #START
+    print("\nWelcome to your personal shopping list!\n")
+    event.wait(1)
+    print("Here you can create your own personalized shopping list!\nYou can add or remove items to the list.\nAs well view and close the list.")
+    event.wait(3)
+    while start != "y":
+        start = input("\nWould you like to make a shopping list? [y/n]: ")
+        if start == "y":
+            print("\nAlright, making your list now...")
+            event.wait(1)
+        elif start == "n":
+            print("\nAlright, thank you for using shopping_list TM!")
+            event.wait(1)
+            exit(shopping_list)
+        else:
+            print("\nSorry, that's not a defined response...")
+            event.wait(1)
+    print("\nYour list has been successfully made!")
+    event.wait(2)
+    #START
+    #MAIN
+    while quit != "y":
+        print("\nHere are the navigations for your list!\n")
+        event.wait(1)
+        print("Here's your list. ---> ", arr)
+        event.wait(.66)
+        print("Enter [add] to add an item to your list.")
+        event.wait(.67)
+        print("Enter [delete] to delete an item from your list.")
+        event.wait(.67)
+        print("Enter [quit] to quit the program.")
+        event.wait(1)
+        insert = input("\nEnter any of the following above: ")
+        #ADD
+        if insert == "add":
+            print("\nHere's your list. ---> ", arr)
+            event.wait(1)
+            print("\nAlright, let's add items to your list!")
+            event.wait(1)
+            add_1 = int(input("\nHow many items are you going to add: "))
+            event.wait(1)
+            print("Here's the categories...\n")
+            event.wait(1)
+            print("###Produce Section###")
+            print(produce1.name)
+            print(produce1.price_tag)
+            print(produce2.name)
+            print(produce2.price_tag)
+            print(produce3.name)
+            print(produce3.price_tag)
+            print(produce4.name)
+            print(produce4.price_tag)
+            event.wait(.50)
+            print("\n###Meats Section###")
+            print(meats1.name)
+            print(meats1.price_tag)
+            print(meats2.name)
+            print(meats2.price_tag)
+            print(meats3.name)
+            print(meats3.price_tag)
+            print(meats4.name)
+            print(meats4.price_tag)
+            event.wait(.50)
+            print("\n###Dairy Section###")
+            print(dairy1.name)
+            print(dairy1.price_tag)
+            print(dairy2.name)
+            print(dairy2.price_tag)
+            print(dairy3.name)
+            print(dairy3.price_tag)
+            print(dairy4.name)
+            print(dairy4.price_tag)
+            event.wait(.50)
+            if isinstance(add_1, int):
+                print("\nAlright, adding", add_1, "items to your list...")
+                event.wait(1)
+                print("\nNow enter the names for your items, 1 to whatever number, in that order.")
+                for i in range(add_1):
+                    add_2 = input("\nAdd a name for this item: ")
+                    if add_2 == produce1.name:
+                        arr.append(add_2)
+                        arr_2.append(produce1.price)
+                    elif add_2 == produce2.name:
+                        arr.append(add_2)
+                        arr_2.append(produce2.price)
+                    elif add_2 == produce3.name:
+                        arr.append(add_2)
+                        arr_2.append(produce3.price)
+                    elif add_2 == produce4.name:
+                        arr.append(add_2)
+                        arr_2.append(produce4.price)
+                    elif add_2 == meats1.name:
+                        arr.append(add_2)
+                        arr_2.append(meats1.price)
+                    elif add_2 == meats2.name:
+                        arr.append(add_2)
+                        arr_2.append(meats2.price)
+                    elif add_2 == meats3.name:
+                        arr.append(add_2)
+                        arr_2.append(meats3.price)
+                    elif add_2 == meats4.name:
+                        arr.append(add_2)
+                        arr_2.append(meats4.price)
+                    elif add_2 == dairy1.name:
+                        arr.append(add_2)
+                        arr_2.append(dairy1.price)
+                    elif add_2 == dairy2.name:
+                        arr.append(add_2)
+                        arr_2.append(dairy2.price)
+                    elif add_2 == dairy3.name:
+                        arr.append(add_2)
+                        arr_2.append(dairy3.price)
+                    elif add_2 == dairy4.name:
+                        arr.append(add_2)
+                        arr_2.append(dairy4.price)
+                    else:
+                        print("\nthat's not within the categories...")
+                print("\nHere's your list. ---> ", arr)
+                event.wait(3)
+        #ADD
+        #DELETE
+        elif insert == "delete":
+            print("\nHere's your list. ---> ", arr)
+            event.wait(1)
+            print("\nAlright, let's delete items frpm your list!")
+            event.wait(1)
+            delete = input("\nEnter the name of the item that you want to delete: ")
+            arr.remove(delete)
+            print("\nYou removed", arr, "from the list ")
+        #DELETE
+        #QUIT
+        elif insert == "quit":
+            quit = input("\nAre you sure you want to quit? [y/n]: ")
+            if quit == "y":
+                print("\nAlright, thank you for using shopping_list TM!")
+                event.wait(1)
+                print("\nHere's your list. ---> ", arr)
+                event.wait(1)
+                for i in range(0, len(arr_2)):
+                    sum = sum + arr_2[i]
+                print("\nYour total is: $" + str(sum))
+                event.wait(1)
+                exit()
+            elif quit == "n":
+                print("\nAlright, sending you back...")
+                event.wait(1)
+            else:
+                print("\nSorry, that's not a defined response...")
+                event.wait(1)
+        #QUIT
+        #ELSE
+        else:
+            print("\nSorry, that's not a defined response...")
+            event.wait(1)
+        #ELSE
+    #MAIN
+shopping_list()
